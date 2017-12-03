@@ -4,7 +4,7 @@ An python script to let me understand what ```REST API``` is and
 how to use ```Flask-SQLAlchemy``` and ```Flask-RESTful```.
 
 
-1. Run ```restapi.py``` or ```restful.py```
+1... Run ```restapi.py``` or ```restful.py```
 
 ```sh
 >py restapi.py
@@ -14,7 +14,7 @@ how to use ```Flask-SQLAlchemy``` and ```Flask-RESTful```.
  * Debugger pin code: xxx-xxx-xxx
 ```
 
-2. Open the other terminal and Check Database
+2... Open the other terminal and Check Database
 ```sh
 >curl -i http://127.0.0.1:8000/sqlalc/
 HTTP/1.0 200 OK
@@ -29,7 +29,7 @@ Date: Sun, 03 Dec 2017 13:02:54 GMT
 }
 ```
 
-3. ```PUT``` with id = '1'... then ```fail```, because id can't be given when ```PUT```.
+3... ```PUT``` with id = '1'... then ```fail```, because id can't be given when ```PUT```.
 ```sh
 >curl -i http://127.0.0.1:8000/sqlalc/1/Taro/Hage -X PUT
 HTTP/1.0 403 FORBIDDEN
@@ -44,7 +44,7 @@ Date: Sun, 03 Dec 2017 13:03:14 GMT
 }
 ```
 
-4. ```PUT``` with id = '-'... then ```success```
+4... ```PUT``` with id = '-'... then ```success```
 ```sh
 > curl -i http://127.0.0.1:8000/sqlalc/-/Taro/Hage -X PUT
 HTTP/1.0 200 OK
@@ -61,7 +61,7 @@ Date: Sun, 03 Dec 2017 13:03:32 GMT
 }
 ```
 
-5. ```PUT``` one more. 
+5... ```PUT``` one more. 
 ```sh
 >curl -i http://127.0.0.1:8000/sqlalc/-/Jiro/MottoHage -X PUT
 HTTP/1.0 200 OK
@@ -78,9 +78,9 @@ Date: Sun, 03 Dec 2017 13:03:43 GMT
 }
 ```
 
-6. Check Database
+6... Check Database
 ```sh
-% curl -i http://127.0.0.1:8000/sqlalc/
+>curl -i http://127.0.0.1:8000/sqlalc/
 HTTP/1.0 200 OK
 Content-Type: application/json
 Content-Length: 196
@@ -104,7 +104,7 @@ Date: Sun, 03 Dec 2017 13:03:50 GMT
 }
 ```
 
-7. ```GET``` with id = '1'
+7... ```GET``` with id = '1'
 ```sh
 >curl -i http://127.0.0.1:8000/sqlalc/1/-/-
 HTTP/1.0 200 OK
@@ -121,7 +121,7 @@ Date: Sun, 03 Dec 2017 13:04:04 GMT
 }
 ```
 
-8. or ```GET``` with name = 'Taro'
+8... or ```GET``` with name = 'Taro'
 ```sh
 >curl -i http://127.0.0.1:8000/sqlalc/-/Taro/-
 HTTP/1.0 200 OK
@@ -138,7 +138,7 @@ Date: Sun, 03 Dec 2017 13:04:17 GMT
 }
 ```
 
-9. ```DELETE``` with id = '1'
+9... ```DELETE``` with id = '1'
 ```sh
 >curl -i http://127.0.0.1:8000/sqlalc/1/-/- -X DELETE
 HTTP/1.0 200 OK
@@ -152,7 +152,7 @@ Date: Sun, 03 Dec 2017 13:04:29 GMT
 }
 ```
 
-10. Check Database
+10... Check Database
 ```sh
 >curl -i http://127.0.0.1:8000/sqlalc/
 HTTP/1.0 200 OK
