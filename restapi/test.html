@@ -14,7 +14,7 @@
         <input id="name" type="text" size="10"><br>
         <label for="looks">looks</label><br>
         <input id="looks" type="text" size="10"><br>
-          
+
         <select id="method">
           <option>GET</option>
           <option>PUT</option>
@@ -39,8 +39,8 @@
 $(function() {
   $('#submit').click(function() {
     $.ajax({
-        url: "http://127.0.01/sqlalc/" + $("#id").val + "/" + $("#name").val + "/" + $("#looks").val,
-        type: $("#method").val.toString()
+        url: "http://127.0.0.1:8000/sqlalc/" + $("#id").val() + "/" + $("#name").val() + "/" + $("#looks").val(),
+        type: $("#method").val().toString()
     })
     .done(function(data) {
         $('#response').val(data);
