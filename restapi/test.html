@@ -40,7 +40,7 @@ $(function() {
   $('#submit').click(function() {
     $.ajax({
         url: "http://127.0.01/sqlalc/" + $("#id").val + "/" + $("#name").val + "/" + $("#looks").val,
-        type: $("#method").val().toString()
+        type: $("#method").val.toString()
     })
     .done(function(data) {
         $('#response').val(data);
