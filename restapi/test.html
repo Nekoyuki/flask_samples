@@ -14,8 +14,15 @@
         <input id="name" type="text" size="10" />
         <label for="looks">looks</label><br />
         <input id="looks" type="text" size="10" />
-        <label for="method">method</label><br />
-        <input id="method" type="text" size="10" /> 
+          
+        <select id="method">
+          <option>GET</option>
+          <option>PUT</option>
+          <option>DELETE</option>
+        </select>
+          
+        //<label for="method">method</label><br />
+        //<input id="method" type="text" size="10" /> 
         <input id="submit" type="button" value="submit" />
       </div>
       <div>
@@ -35,8 +42,8 @@
 $(function() {
   $('#submit').click(function() {
     $.ajax({
-        url: "http://127.0.01/sqlalc/" + $("#id").val + "/" + $("name").val + "/" + $("looks").val,
-        type: $("method").val
+        url: "http://127.0.01/sqlalc/" + $("#id").val + "/" + $("#name").val + "/" + $("#looks").val,
+        type: $("#method").val
     })
     .done(function(data) {
         $('#response').val(data);
