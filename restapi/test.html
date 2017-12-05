@@ -40,14 +40,18 @@ $(function() {
   $('#submit').click(function() {
     $.ajax({
         url: "http://127.0.0.1:8000/sqlalc/" + $("#id").val() + "/" + $("#name").val() + "/" + $("#looks").val(),
-        type: $("#method").val().toString()
+        type: $("#method").val().toString(),
+        dataType: "json"
     })
-    .done(function(data) {
-        $('#response').val(data);
-    })
-    .fail(function(data) {
-        $('#response').val(data);
-    });
+    .then(
+        function(data, status, xhr) {
+            $("#response").val(JSON.stringify(data));
+            <!-- $('#response').val(data.r); -->
+        },
+        function(xhr, status, error) {
+            $("#response").val(xhr.status + " " + error);
+        }
+    );
   });
 });
 </script>
