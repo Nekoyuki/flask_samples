@@ -24,6 +24,7 @@
         <input id="submit" type="button" value="submit">
       </div>
       <div>
+        <textarea id="status" type="text" rows="1" cols="35">Response</textarea>
         <textarea id="response" type="text" rows="10" cols="35">Response</textarea>
       </div>
     </form>
@@ -45,10 +46,12 @@ $(function() {
     })
     .then(
         function(data, status, xhr) {
+            $("#status").val(xhr.status);
             $("#response").val(JSON.stringify(data));
             <!-- $('#response').val(data.r); -->
         },
         function(xhr, status, error) {
+            $("#status").val(xhr.status);
             $("#response").val(xhr.status + " " + error);
         }
     );
