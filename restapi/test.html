@@ -6,26 +6,51 @@
 </head>
 
 <body>
-    <form>
-      <div>
-        <label for="id">id</label><br>
-        <input id="id" type="text" size="10"><br>
-        <label for="name">Name</label><br>
-        <input id="name" type="text" size="10"><br>
-        <label for="looks">looks</label><br>
-        <input id="looks" type="text" size="10"><br>
-
-        <select id="method">
-          <option>GET</option>
-          <option>PUT</option>
-          <option>DELETE</option>
-        </select>
-        <br>
-        <input id="submit" type="button" value="submit">
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label class="col-sm-1 control-label" for="id">id</label>
+        <div class="col-sm-2">
+          <input class="form-control" id="id" type="text" size="10" placeholder="id" >
+        </div>
       </div>
-      <div>
-        <textarea id="status" type="text" rows="1" cols="35">Response</textarea>
-        <textarea id="response" type="text" rows="10" cols="35">Response</textarea>
+      <div class="form-group">
+        <label class="col-sm-1 control-label" for="name">Name</label>
+        <div class="col-sm-2">
+          <input class="form-control" id="name" type="text" size="10">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-1 control-label" for="looks">looks</label>
+        <div class="col-sm-2">
+          <input class="form-control" id="looks" type="text" size="10">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-1 control-label" for="method">method</label>
+        <div class="col-sm-2">
+          <select class="form-control" id="method">
+            <option>GET</option>
+            <option>PUT</option>
+            <option>DELETE</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-1 col-sm-2">
+          <!-- <input class="btn btn-default" type="submit" value="Submit"> -->
+          <button type="button" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-1 col-sm-2">
+          <textarea class="form-control" id="status" type="text" rows="1">Response</textarea>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-1 col-sm-2">
+          <textarea class="form-control" id="response" type="text" rows="10">Response</textarea>
+        </div>
       </div>
     </form>
 </body>
