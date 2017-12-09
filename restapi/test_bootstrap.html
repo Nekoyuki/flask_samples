@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Restapi</title>
+</head>
+
+<body>
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label class="col-sm-1 control-label" for="id">id</label>
+        <div class="col-sm-2">
+          <input class="form-control" id="id" type="text" placeholder="1" >
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-1 control-label" for="name">name</label>
+        <div class="col-sm-2">
+          <input class="form-control" id="name" type="text" placeholder="Taro" >
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-1 control-label" for="looks">looks</label>
+        <div class="col-sm-2">
+          <input class="form-control" id="looks" type="text" placeholder="Hage">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-1 control-label" for="method">method</label>
+        <div class="col-sm-2">
+          <select class="form-control" id="method">
+            <option>GET</option>
+            <option>PUT</option>
+            <option>DELETE</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-1 col-sm-2">
+          <button type="button" class="btn btn-outline-primary" id="submit">Submit</button>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-1 col-sm-2">
+          <textarea class="form-control" id="status" type="text" rows="1" placeholder="status"></textarea>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-1 col-sm-2">
+          <textarea class="form-control" id="response" type="text" rows="10" placeholder="data"></textarea>
+        </div>
+      </div>
+    </form>
+</body>
+
+<style>
+    body {
+        padding: 10px;
+    }
+</style>
+
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script>
+$(function() {
+  $("#submit").click(function() {
+    $.ajax({
+        url: "http://127.0.0.1:8000/sqlalc/" + $("#id").val() + "/" + $("#name").val() + "/" + $("#looks").val(),
+        type: $("#method").val().toString(),
+        dataType: "json"
+    })
+    .then(
+        function(data, status, xhr) {
+            $("#status").val("success xhr.status=" + xhr.status);
+            $("#response").val(JSON.stringify(data));
+            <!-- $('#response').val(data.r); -->
+        },
+        function(xhr, status, error) {
+            $("#status").val("fail xhr.status=" + xhr.status);
+            $("#response").val(status + " " + error);
+        }
+    );
+  });
+});
+</script>
+
+</html>
